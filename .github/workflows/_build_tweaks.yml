@@ -89,10 +89,12 @@ jobs:
       # ADD THIS - builds from your fork's source (no paywall)
       - name: Checkout YTLite source
         uses: actions/checkout@v4
-      
+        with:
+          clean: false
+
       - name: Build YTLite
         run: make clean package DEBUG=0 FINALPACKAGE=1
-      
+
       - name: Move YTLite deb
         run: mv packages/*.deb ytplus.deb
 
